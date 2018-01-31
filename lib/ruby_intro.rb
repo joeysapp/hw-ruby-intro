@@ -19,6 +19,19 @@ def max_2_sum arr
 end
 
 def sum_to_n? arr, n
+	# Complementary dictionary/hash table of what we need
+	c = {}
+	# We don't need their idx, just have to return true/false
+	arr.each do |i|
+		n_c = n > 0 ? n-i : i.abs + n 
+		if (c.key?(i))
+			return true
+		else
+			c[n_c] = 0
+		end
+	end
+	return false
+
   # YOUR CODE HERE
 end
 
