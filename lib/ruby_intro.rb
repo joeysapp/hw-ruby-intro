@@ -3,11 +3,19 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+	return arr.inject(0, :+)
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+	arr = arr.sort
+	if (arr.size > 1)
+		puts arr
+		return arr[-2...arr.size].inject(0, :+)
+	elsif arr.size === 1
+		return arr.first
+	else
+		return 0
+	end
 end
 
 def sum_to_n? arr, n
