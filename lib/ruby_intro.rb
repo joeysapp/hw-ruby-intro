@@ -39,25 +39,32 @@ def hello(name)
 end
 
 def starts_with_consonant? s
-	unless ["a", "e", "i", "o", "u"].include? s[0,1].downcase
-		# Empty case
-		unless s.length == 0
-			# Special characters
-			if s.match(/\A[a-zA-Z0-9]*\z/).nil?
-				return false
-			end
-			return true
-		return false
-		end
-	else
-		return false
+	if !["a", "e", "i", "o", "u"].include? s[0,1].downcase and s.length > 0 and !s.match(/\A[a-zA-Z0-9]*\z/).nil?
+		return true
 	end
+	return false
 end
 
+# def starts_with_consonant? s
+# 	unless ["a", "e", "i", "o", "u"].include? s[0,1].downcase
+# 		# Empty case
+# 		unless s.length == 0
+# 			# Special characters
+# 			if s.match(/\A[a-zA-Z0-9]*\z/).nil?
+# 				return false
+# 			end
+# 			return true
+# 		return false
+# 		end
+# 	else
+# 		return false
+# 	end
+# end
+
+def binary_multiple_of_4? s
 	# 1. Check that string is only 0 or 1
 	# 2. Check for empty string
 	# 3. Check that the string, converted to binary, is modulo 4
-def binary_multiple_of_4? s
 	if s.count('01') != s.size or s.size == 0 or s.to_i(2) % 4 != 0
 		return false
 	end
