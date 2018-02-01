@@ -9,7 +9,6 @@ end
 def max_2_sum arr
 	arr = arr.sort
 	if (arr.size > 1)
-		puts arr
 		return arr[-2...arr.size].inject(0, :+)
 	elsif arr.size === 1
 		return arr.first
@@ -31,26 +30,55 @@ def sum_to_n? arr, n
 		end
 	end
 	return false
-
-  # YOUR CODE HERE
 end
 
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+	return "Hello, "+name
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+	unless ["a", "e", "i", "o", "u"].include? s[0,1].downcase
+		# Empty case
+		unless s.length == 0
+			# Special characters
+			if s.match(/\A[a-zA-Z0-9]*\z/).nil?
+				return false
+			end
+			return true
+		return false
+		end
+	else
+		return false
+	end
 end
 
+	# 1. Check that string is only 0 or 1
+	# 2. Check for empty string
+	# 3. Check that the string, converted to binary, is modulo 4
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+	if s.count('01') != s.size or s.size == 0 or s.to_i(2) % 4 != 0
+		return false
+	end
+	return true
 end
 
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+	attr_accessor :isbn, :price
+
+	def initialize isbn, price
+		unless (isbn.length > 0 && price > 0)
+			raise ArgumentError.new("Incorrect Arguments");
+		end
+		self.isbn = isbn;
+		self.price = price;
+	end
+
+	def price_as_string
+		return format("$%.2f", self.price)
+	end
+
 end
