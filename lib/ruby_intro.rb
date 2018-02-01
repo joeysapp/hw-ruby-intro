@@ -22,6 +22,8 @@ def sum_to_n? arr, n
 	c = {}
 	# We don't need their idx, just have to return true/false
 	arr.each do |i|
+		# Look for the other item we need (the 'complement')
+		# Otherwise, insert it!
 		n_c = n > 0 ? n-i : i.abs + n 
 		if (c.key?(i))
 			return true
@@ -39,27 +41,14 @@ def hello(name)
 end
 
 def starts_with_consonant? s
+	# 1. Check that it's not a vowel
+	# 2. Check that it's not an empty string
+	# 3. Check that the first item is alphanumeric
 	if !["a", "e", "i", "o", "u"].include? s[0,1].downcase and s.length > 0 and !s.match(/\A[a-zA-Z0-9]*\z/).nil?
 		return true
 	end
 	return false
 end
-
-# def starts_with_consonant? s
-# 	unless ["a", "e", "i", "o", "u"].include? s[0,1].downcase
-# 		# Empty case
-# 		unless s.length == 0
-# 			# Special characters
-# 			if s.match(/\A[a-zA-Z0-9]*\z/).nil?
-# 				return false
-# 			end
-# 			return true
-# 		return false
-# 		end
-# 	else
-# 		return false
-# 	end
-# end
 
 def binary_multiple_of_4? s
 	# 1. Check that string is only 0 or 1
